@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cita Rasa Nusantara</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        background-color: #fff7e6;
+        color: #4b2e2e;
+      }
+      header {
+        background-color: #e67e22;
+        padding: 20px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+      }
+      header h1 span {
+        font-weight: 700;
+      }
+      nav a {
+        margin-left: 20px;
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .hero,
+      .tentang,
+      .kuliner,
+      .peta {
+        padding: 60px 40px;
+      }
+      .hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #fff3db;
+        flex-wrap: wrap;
+      }
+      .hero-text {
+        max-width: 600px;
+      }
+      .hero-text h2 {
+        font-size: 42px;
+        color: #78350f;
+        margin-bottom: 20px;
+      }
+      .hero-text p {
+        font-size: 18px;
+        margin-bottom: 30px;
+        color: #4b2e2e;
+      }
+      .hero-text button,
+      .hero-text a.button-outline {
+        padding: 12px 20px;
+        font-size: 16px;
+        border: none;
+        margin-right: 10px;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+      .hero-text button {
+        background-color: #d97706;
+        color: white;
+      }
+      .hero-text a.button-outline {
+        background-color: transparent;
+        border: 2px solid #d97706;
+        color: #d97706;
+        text-decoration: none;
+      }
+      .hero img {
+        max-width: 300px;
+        border-radius: 12px;
+      }
+      .tentang {
+        text-align: center;
+      }
+      .tentang h2 {
+        font-size: 36px;
+        color: #78350f;
+        margin-bottom: 10px;
+      }
+      .tentang p {
+        font-size: 18px;
+        max-width: 800px;
+        margin: 0 auto 40px;
+      }
+      .fakta-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .fakta {
+        background-color: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        max-width: 250px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      .fakta h3 {
+        color: #b45309;
+        margin-top: 10px;
+      }
+      .kuliner h2,
+      .peta h2 {
+        text-align: center;
+        color: #78350f;
+        margin-bottom: 10px;
+      }
+      .kuliner p,
+      .peta p {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .filter-buttons {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .filter-buttons button {
+        margin: 5px;
+        padding: 10px 16px;
+        border-radius: 20px;
+        border: none;
+        background-color: #fcd34d;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .filter-buttons .active {
+        background-color: #d97706;
+        color: white;
+      }
+      .kuliner-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+      .kuliner-card {
+        background-color: #fff;
+        width: 250px;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        position: relative;
+      }
+      .kuliner-card img {
+        width: 100%;
+      }
+      .kuliner-card .label {
+        position: absolute;
+        background-color: #f59e0b;
+        color: white;
+        padding: 4px 10px;
+        font-size: 12px;
+        top: 10px;
+        right: 10px;
+        border-radius: 20px;
+      }
+      .kuliner-card .content {
+        padding: 15px;
+      }
+      .kuliner-card h4 {
+        margin-bottom: 5px;
+        color: #78350f;
+      }
+      .kuliner-card p {
+        font-size: 14px;
+        color: #555;
+      }
+      .rating {
+        font-size: 14px;
+        color: #777;
+        margin: 10px 0;
+      }
+      .rating span {
+        color: #fbbf24;
+      }
+      .peta img {
+        display: block;
+        max-width: 100%;
+        margin: 0 auto;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .lihat-lebih {
+        text-align: center;
+        margin-top: 30px;
+      }
+      .lihat-lebih button {
+        background-color: #d97706;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1><span>📖</span> Cita Rasa Nusantara</h1>
+      <nav>
+        <a href="#">Beranda</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#kuliner">Kuliner Daerah</a>
+        <a href="#peta">Peta Kuliner</a>
+        <a href="#">Kontak</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-text">
+        <h2>Jelajahi Kekayaan Kuliner Indonesia</h2>
+        <p>
+          Temukan beragam makanan khas dari Sabang sampai Merauke yang kaya akan
+          rasa dan sejarah.
+        </p>
+        <button onclick="location.href='#kuliner'">Lihat Makanan Khas</button>
+        <a href="#kuliner" class="button-outline">Jelajahi Daerah</a>
+      </div>
+      <img src="img/ilustrasi.jpeg.jpg" alt="Ilustrasi makanan khas" />
+    </section>
+
+    <section id="tentang" class="tentang">
+      <h2>Tentang Cita Rasa Nusantara</h2>
+      <p>
+        Cita Rasa Nusantara adalah platform yang didedikasikan untuk
+        memperkenalkan dan mempromosikan kekayaan kuliner Indonesia. Kami
+        mengumpulkan informasi tentang makanan khas dari berbagai daerah di
+        Indonesia untuk melestarikan warisan kuliner bangsa.
+      </p>
+      <div class="fakta-container">
+        <div class="fakta">
+          <img src="https://img.icons8.com/color/48/cake.png" alt="Provinsi" />
+          <h3>34 Provinsi</h3>
+          <p>
+            Menghadirkan kuliner khas dari 34 provinsi di Indonesia dengan
+            keunikan rasa dan cerita masing-masing.
+          </p>
+        </div>
+        <div class="fakta">
+          <img
+            src="https://img.icons8.com/color/48/open-book--v2.png"
+            alt="Resep"
+          />
+          <h3>500+ Resep</h3>
+          <p>
+            Koleksi lebih dari 500 resep autentik yang telah diwariskan dari
+            generasi ke generasi.
+          </p>
+        </div>
+        <div class="fakta">
+          <img src="https://img.icons8.com/color/48/marker.png" alt="Peta" />
+          <h3>Peta Kuliner</h3>
+          <p>
+            Temukan lokasi kuliner khas di seluruh Indonesia melalui peta
+            interaktif kami.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kuliner" class="kuliner">
+      <h2>Kuliner Daerah</h2>
+      <p>
+        Jelajahi beragam makanan khas dari berbagai wilayah di Indonesia yang
+        kaya akan rempah dan cita rasa unik.
+      </p>
+      <div class="filter-buttons">
+        <button class="active">Semua</button>
+        <button>Sumatera</button>
+        <button>Jawa</button>
+        <button>Kalimantan</button>
+        <button>Sulawesi</button>
+        <button>Bali & Nusa Tenggara</button>
+        <button>Maluku & Papua</button>
+      </div>
+      <div class="kuliner-list">
+        <div class="kuliner-card">
+          <span class="label">Bali</span>
+          <img src="img/ayambetutu.jpeg.jpeg" alt="Ayam Betutu" />
+          <div class="content">
+            <h4>Ayam Betutu</h4>
+            <p>
+              Ayam utuh yang diisi bumbu rempah khas Bali dan dikukus atau
+              dipanggang dengan api kecil.
+            </p>
+            <div class="rating"><span>★</span> 4.8 (135 ulasan)</div>
+            <button>Lihat Detail</button>
+          </div>
+        </div>
+        <div class="kuliner-card">
+          <span class="label">Papua</span>
+          <img src="img/papeda.jpeg.jpeg" alt="Papeda" />
+          <div class="content">
+            <h4>Papeda</h4>
+            <p>
+              Bubur sagu khas Papua yang disajikan dengan kuah kuning ikan dan
+              sayuran.
+            </p>
+            <div class="rating"><span>★</span> 4.3 (75 ulasan)</div>
+            <button>Lihat Detail</button>
+          </div>
+        </div>
+        <div class="kuliner-card">
+          <span class="label">Sumatera</span>
+          <img src="img/rendang.jpg.jpeg" alt="Rendang" />
+          <div class="content">
+            <h4>Rendang</h4>
+            <p>
+              Daging sapi dimasak dengan santan dan rempah khas Minangkabau
+              hingga kering dan berwarna cokelat gelap.
+            </p>
+            <div class="rating"><span>★</span> 4.9 (250 ulasan)</div>
+            <button>Lihat Detail</button>
+          </div>
+        </div>
+        <div class="kuliner-card">
+          <span class="label">Jawa</span>
+          <img src="img/gudeg.jpg.jpeg" alt="Gudeg" />
+          <div class="content">
+            <h4>Gudeg</h4>
+            <p>
+              Masakan khas Yogyakarta dari nangka muda yang dimasak dengan
+              santan dan gula merah.
+            </p>
+            <div class="rating"><span>★</span> 4.7 (190 ulasan)</div>
+            <button>Lihat Detail</button>
+          </div>
+        </div>
+        <div class="kuliner-card">
+          <span class="label">Kalimantan</span>
+          <img src="img/sotobanjar.jpg.jpeg" alt="Soto Banjar" />
+          <div class="content">
+            <h4>Soto Banjar</h4>
+            <p>
+              Sup ayam khas Kalimantan Selatan dengan aroma rempah kuat dan
+              biasanya disajikan dengan ketupat.
+            </p>
+            <div class="rating"><span>★</span> 4.6 (110 ulasan)</div>
+            <button>Lihat Detail</button>
+          </div>
+        </div>
+        <div class="kuliner-card">
+          <span class="label">Sulawesi</span>
+          <img src="img/cotomksr.jpg.jpeg" alt="Coto Makassar" />
+          <div class="content">
+            <h4>Coto Makassar</h4>
+            <p>
+              Sup daging khas Makassar yang dimasak dengan bumbu kacang dan
+              disajikan dengan ketupat.
+            </p>
+            <div class="rating"><span>★</span> 4.8 (160 ulasan)</div>
+            <button>Lihat Detail</button>
+          </div>
+        </div>
+        <div class="kuliner-card">
+          <span class="label">Maluku</span>
+          <img src="img/ikanasar.jpg.jpeg" alt="Ikan Asar" />
+          <div class="content">
+            <h4>Ikan Asar</h4>
+            <p>
+              Ikan yang diasap dengan cara tradisional khas Maluku dan biasanya
+              disantap dengan nasi dan sambal colo-colo.
+            </p>
+            <div class="rating"><span>★</span> 4.5 (85 ulasan)</div>
+            <button>Lihat Detail</button>
+          </div>
+        </div>
+      </div>
+      <div class="lihat-lebih">
+        <button>Lihat Lebih Banyak</button>
+      </div>
+    </section>
+
+    <section id="peta" class="peta">
+      <h2>Peta Kuliner Indonesia</h2>
+      <p>
+        Jelajahi peta interaktif untuk menemukan makanan khas dari berbagai
+        daerah di Indonesia.
+      </p>
+      <img
+        src="eb100fcc-be08-4740-970f-81e5d5cffa4d.png"
+        alt="Peta Kuliner Nusantara"
+      />
+    </section>
+    <script>
+      const buttons = document.querySelectorAll(".filter-buttons button");
+      const cards = document.querySelectorAll(".kuliner-card");
+
+      const regionMap = {
+        Sumatera: ["Sumatera"],
+        Jawa: ["Jawa"],
+        Kalimantan: ["Kalimantan"],
+        Sulawesi: ["Sulawesi"],
+        "Bali & Nusa Tenggara": ["Bali", "Nusa Tenggara"],
+        "Maluku & Papua": ["Maluku", "Papua"],
+        Semua: [], // semua akan ditampilkan
+      };
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // aktifkan style tombol
+          buttons.forEach((btn) => btn.classList.remove("active"));
+          button.classList.add("active");
+
+          const region = button.textContent;
+          const allowedLabels = regionMap[region];
+
+          cards.forEach((card) => {
+            const label = card.querySelector(".label").textContent;
+
+            if (region === "Semua" || allowedLabels.includes(label)) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
